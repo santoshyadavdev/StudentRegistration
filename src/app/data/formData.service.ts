@@ -38,6 +38,7 @@ export class FormDataService {
         this.formData.secondPayerFirstName = data.secondPayerFirstName;
         this.formData.secondPayerLastName = data.secondPayerLastName;
         this.formData.city = data.city;
+        this.formData.studentLastName = data.lastName;
     }
 
     getWork(): string {

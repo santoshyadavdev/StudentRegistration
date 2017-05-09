@@ -15,6 +15,7 @@ import { appStates } from './app.states';
 import { NavbarComponent } from './navbar/navbar.component';
 import { CityProvider } from './data/cityDataModel';
 import { FormDataService } from './data/formData.service';
+import { StudentComponent } from './student/student.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { FormDataService } from './data/formData.service';
     WorkComponent,
     AddressComponent,
     ResultComponent,
-    NavbarComponent
+    NavbarComponent,
+    StudentComponent
   ],
   imports: [
     BrowserModule,

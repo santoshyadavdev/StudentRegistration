@@ -9,7 +9,8 @@ export class FormData {
     addressLine2: string = '';
     city: string = '';
     state: string = '';
-    zip: string= '';
+    zip: string = '';
+    studentLastName: string = '';
 
     clear() {
         this.firstName = '';
@@ -33,7 +34,7 @@ export class Personal {
     addressLine2: string = '';
     city: string = '';
     state: string = '';
-    zip: string ='';
+    zip: string = '';
 }
 
 export class Address {

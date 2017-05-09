@@ -1,3 +1,19 @@
-<h1>
-  {{title}}
-</h1>
+<section style="background:#efefe9;">
+    <div class="container">
+        <div class="board">
+            <!-- Navigation Area (Circular Tabs) -->
+            <app-msw-navbar></app-msw-navbar>
+            <!-- End Navigation Area (Circular Tabs) -->
+
+            <!-- Content Area -->
+            <div class="tab-content">
+                <!-- Nested view  -->
+                <ui-view></ui-view>
+            </div>
+            <!-- End Content Area -->
+        </div>
+
+        <!-- For Debugging: show our valid formData -->
+        <pre>{{ formData | json }}</pre>
+    </div>
+</section>

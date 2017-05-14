@@ -73,12 +73,16 @@ export class FormDataService {
         this.formData.zip = data.zip;
     }
 
-
     setStudents(data: Student[]) {
         // Update the Address data only when the Address Form had been validated successfully
         this.studentDataValid = true;
         this.formData.students = data;
     }
+
+    getStudents(){
+       return this.formData.students;
+    }
+
     getFormData(): FormData {
         // Return the entire Form Data
         return this.formData;

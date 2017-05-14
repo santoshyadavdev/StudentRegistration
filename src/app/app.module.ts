@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { UIRouterModule } from '@uirouter/angular'
 import 'jquery/dist/jquery';
@@ -32,6 +32,7 @@ import { StudentComponent } from './student/student.component';
     BrowserModule,
     FormsModule,
     HttpModule,
+    ReactiveFormsModule,
     UIRouterModule.forRoot({
       states: appStates,
       useHash: true,

@@ -75,6 +75,7 @@ export class FormDataService {
 
     setStudents(data: Student[]) {
         // Update the Address data only when the Address Form had been validated successfully
+        debugger
         this.studentDataValid = true;
         this.formData.students = data;
     }

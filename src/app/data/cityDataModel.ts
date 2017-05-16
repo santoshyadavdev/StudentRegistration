@@ -1,6 +1,18 @@
+
+export interface city {
+    id: number;
+    statecode: string
+}
+
+export interface grade {
+    id: number;
+    gradeCode: string
+}
+
+
 export class CityProvider {
     cityList: city[];
-
+    
     getCityList() {
         return this.cityList = [
             { id: 58, statecode: "AA" },
@@ -69,8 +81,28 @@ export class CityProvider {
     }
 }
 
+export class GradeProvider{
+    gradeList:grade[];
 
-export interface city {
-    id: number;
-    statecode: string
+    getGradeList(){
+          return this.gradeList = [
+            { id: 0, gradeCode: "Please Select" },
+            { id: 1, gradeCode: "Pk" },
+            { id: 2, gradeCode: "Jr" },
+            { id: 3, gradeCode: "Sr" },
+            { id: 4, gradeCode: "1" },
+            { id: 5, gradeCode: "2" },
+            { id: 6, gradeCode: "3" },
+            { id: 7, gradeCode: "4" },
+            { id: 9, gradeCode: "5" },
+            { id: 8, gradeCode: "6" },
+            { id: 10, gradeCode: "7" },
+            { id: 11, gradeCode: "8" },
+            { id: 12, gradeCode: "9" },
+            { id: 13, gradeCode: "10" },
+            { id: 14, gradeCode: "11" },
+            { id: 15, gradeCode: "12" },
+        
+        ];
+    }
 }

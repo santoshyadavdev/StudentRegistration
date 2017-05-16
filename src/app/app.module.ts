@@ -13,7 +13,7 @@ import { ResultComponent } from './result/result.component';
 import { UIRouterConfigFn } from './app.router';
 import { appStates } from './app.states';
 import { NavbarComponent } from './navbar/navbar.component';
-import { CityProvider } from './data/cityDataModel';
+import { CityProvider, GradeProvider} from './data/cityDataModel';
 import { FormDataService } from './data/formData.service';
 import { StudentComponent } from './student/student.component';
 
@@ -39,7 +39,7 @@ import { StudentComponent } from './student/student.component';
       config: UIRouterConfigFn
     })
   ],
-  providers: [{ provide: FormDataService, useClass: FormDataService }, CityProvider],
+  providers: [{ provide: FormDataService, useClass: FormDataService }, CityProvider,GradeProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

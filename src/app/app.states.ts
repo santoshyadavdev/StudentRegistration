@@ -2,13 +2,16 @@ import { PersonalComponent } from './personal/personal.component';
 import { WorkComponent } from './work/work.component';
 import { AddressComponent } from './address/address.component';
 import { ResultComponent } from './result/result.component';
+import { StudentComponent } from './student/student.component';
 
 
 export const appStates = [
    // 1st State
     { name: 'personal', url: '/personal',  component: PersonalComponent },
     // 2nd State:
-    { name: 'work', url: '/work',  component: WorkComponent },
+   // { name: 'work', url: '/work',  component: WorkComponent },
+  
+    { name: 'student', url: '/student',  component: StudentComponent },
     // 3rd State
     { name: 'address', url: '/address',  component: AddressComponent },
     // 4th State

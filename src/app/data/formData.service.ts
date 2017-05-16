@@ -22,7 +22,12 @@ export class FormDataService {
             addressLine2 : this.formData.addressLine2,
             city : this.formData.city,
             state : this.formData.state,
-            zip : this.formData.zip
+            zip : this.formData.zip,
+            mobile: this.formData.mobile,
+            homePhone: this.formData.homePhone,
+            language: this.formData.language,
+            securityQuestion: this.formData.securityQuestion,
+            securityAnswer: this.formData.securityAnswer
         };
         return personal;
     }
@@ -39,6 +44,13 @@ export class FormDataService {
         this.formData.secondPayerLastName = data.secondPayerLastName;
         this.formData.city = data.city;
         this.formData.studentLastName = data.lastName;
+        this.formData.state = data.state;
+        this.formData.zip = data.zip;
+        this.formData.mobile = data.mobile;
+        this.formData.homePhone = data.homePhone;
+        this.formData.language = data.language;
+        this.formData.securityQuestion = data.securityQuestion;
+        this.formData.securityAnswer = data.securityAnswer;
     }
 
     getWork(): string {

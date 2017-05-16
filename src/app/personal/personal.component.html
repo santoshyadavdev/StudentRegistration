@@ -3,14 +3,14 @@
     <h4 class="head text-center">{{title}}</h4>
     <br/>
     <div class='row'>
-      <div class='col-xs-offset-1 col-xs-10 col-sm-offset-2 col-md-8'>
+      <div class='col-md-12'>
         <div class="row">
           <div class='col-xs-12 col-md-6'>
             <div class="form-group">
               <label class="control-label" for="firstname">First Name</label>
-              <input class="form-control input-md" #firstname="ngModel" required id="firstname" name="firstname" type="text" placeholder="First Name"
+              <input class="form-control" #firstname="ngModel" required id="firstname" name="firstname" type="text" placeholder="First Name"
                 [(ngModel)]="personal.firstName">
-              <div class="alert alert-danger" [hidden]="firstname.valid">First Name is required</div>
+              <!--<div class="alert alert-danger" [hidden]="firstname.valid">First Name is required</div>-->
             </div>
           </div>
           <div class='col-xs-12 col-md-6'>
@@ -18,7 +18,7 @@
               <label class="control-label" for="lastname">Last Name</label>
               <input class="form-control input-md" #lastname="ngModel" required id="lastname" name="lastname" type="text" placeholder="Last Name"
                 [(ngModel)]="personal.lastName">
-              <div class="alert alert-danger" [hidden]="lastname.valid">Last Name is required</div>
+              <!--<div class="alert alert-danger" [hidden]="lastname.valid">Last Name is required</div>-->
             </div>
           </div>
         </div>
@@ -26,7 +26,7 @@
           <label class="control-label" for="email">Email</label>
           <input class="form-control input-md" #email="ngModel" required pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$" id="email" name="email"
             type="text" placeholder="Email" [(ngModel)]="personal.email">
-          <div class="alert alert-danger" [hidden]="email.valid">Email is required and must be valid</div>
+          <!--<div class="alert alert-danger" [hidden]="email.valid">Email is required and must be valid</div>-->
         </div>
         <div class="row">
           <div class='col-xs-12 col-md-6'>
@@ -34,7 +34,7 @@
               <label class="control-label" for="firstname">First Name</label>
               <input class="form-control input-md" #addfirstname="ngModel" required id="addfirstname" name="addfirstname" type="text" placeholder="Addtional Payer First Name"
                 [(ngModel)]="personal.secondPayerFirstName">
-              <div class="alert alert-danger" [hidden]="addfirstname.valid">First Name is required</div>
+              <!--<div class="alert alert-danger" [hidden]="addfirstname.valid">First Name is required</div>-->
             </div>
           </div>
           <div class='col-xs-12 col-md-6'>
@@ -42,37 +42,82 @@
               <label class="control-label" for="lastname">Last Name</label>
               <input class="form-control input-md" #addlastname="ngModel" required id="addlastname" name="addlastname" type="text" placeholder="Additional Payer Last Name"
                 [(ngModel)]="personal.secondPayerLastName">
-              <div class="alert alert-danger" [hidden]="addlastname.valid">Last Name is required</div>
+              <!--<div class="alert alert-danger" [hidden]="addlastname.valid">Last Name is required</div>-->
             </div>
           </div>
         </div>
         <div class="form-group">
-          <label class="control-label" for="email">STREET ADDRESS</label>
-          <input class="form-control input-md" #addressLine1="ngModel" required   id="addressLine1" name="addressLine1"
-            type="text" placeholder="STREET ADDRESS" [(ngModel)]="personal.addressLine1">
-          <div class="alert alert-danger" [hidden]="addressLine1.valid">Address is required </div>
+          <label class="control-label" for="addressLine1">STREET ADDRESS</label>
+          <input class="form-control input-md" #addressLine1="ngModel" required id="addressLine1" name="addressLine1" type="text" placeholder="STREET ADDRESS"
+            [(ngModel)]="personal.addressLine1">
+          <!--<div class="alert alert-danger" [hidden]="addressLine1.valid">Address is required </div>-->
         </div>
         <div class="form-group">
-          <label class="control-label" for="email">STREET ADDRESS #2</label>
-          <input class="form-control input-md" #addressLine2="ngModel" required   id="addressLine2" name="addressLine2"
-            type="text" placeholder="Email" [(ngModel)]="personal.addressLine2">
-          <div class="alert alert-danger" [hidden]="email.valid">Address 2 is required</div>
+          <label class="control-label" for="addressLine2">STREET ADDRESS #2</label>
+          <input class="form-control input-md" #addressLine2="ngModel" required id="addressLine2" name="addressLine2" type="text" placeholder="STREET ADDRESS #2"
+            [(ngModel)]="personal.addressLine2">
+          <!--<div class="alert alert-danger" [hidden]="addressLine2.valid">Address 2 is required</div>-->
         </div>
 
+        <div class="row">
+          <div class="form-group col-md-6">
+            <label class="control-label" for="City">City</label>
+            <input class="form-control input-md" #city="ngModel" required id="city" name="city" type="text" placeholder="City" [(ngModel)]="personal.city">
+            <!--<div class="alert alert-danger" [hidden]="city.valid">City is required</div>-->
+          </div>
 
-         <div class="form-group">
-          <label class="control-label" for="email">City</label>
-          <select class="form-control input-md" #city="ngModel" required   id="city" name="city"
-            [(ngModel)]="personal.city">
-            <option *ngFor="let c of cityList" [value]="c.statecode">{{c.statecode}}</option>
+          <div class="form-group col-md-3">
+            <label class="control-label" for="State">State</label>
+            <select class="form-control input-md" #state="ngModel" required id="state" name="state" [(ngModel)]="personal.state">
+            <option *ngFor="let c of statesList" [value]="c.statecode">{{c.statecode}}</option>
           </select>
-          <div class="alert alert-danger" [hidden]="city.valid">City is required</div>
+            <!--<div class="alert alert-danger" [hidden]="state.valid">State is required</div>-->
+          </div>
+
+          <div class="form-group col-md-3">
+            <label class="control-label" for="zip">Zip</label>
+            <input class="form-control input-md" #zip="ngModel" required id="zip" name="zip" type="text" placeholder="zip" [(ngModel)]="personal.zip">
+            <!--<div class="alert alert-danger" [hidden]="zip.valid">zip is required</div>-->
+          </div>
         </div>
-        
+        <div class="row">
+          <div class="form-group col-md-4">
+            <label class="control-label" for="Mobile">Mobile</label>
+            <input class="form-control input-md" #Mobile="ngModel" id="Mobile" name="Mobile" type="text" placeholder="Mobile" [(ngModel)]="personal.Mobile">
+          </div>
+
+          <div class="form-group col-md-4">
+            <label class="control-label" for="home">Home #</label>
+            <input class="form-control input-md" #home="ngModel" id="home" name="home" type="text" placeholder="Home #" [(ngModel)]="personal.homePhone">
+          </div>
+
+          <div class="form-group col-md-4">
+            <label class="control-label" for="Language">Language</label>
+            <select class="form-control input-md" #language="ngModel" id="language" name="language" [(ngModel)]="personal.language">
+            <option *ngFor="let c of languages" [value]="c">{{c}}</option>
+          </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label" for="question">Security Question</label>
+          <select class="form-control input-md" required #question="ngModel" id="question" name="question" [(ngModel)]="personal.securityQuestion">
+            <option *ngFor="let c of securityQuestions" [value]="c">{{c}}</option>
+          </select>
+          <!--<div class="alert alert-danger" [hidden]="question.valid">Please select security question</div>-->
+        </div>
+
+        <div class="form-group">
+          <label class="control-label" for="answer">Answer</label>
+          <input class="form-control input-md" #answer="ngModel" required id="answer" name="answer" type="text" placeholder="Answer"
+            [(ngModel)]="personal.securityAnswer">
+          <!--<div class="alert alert-danger" [hidden]="answer.valid">Security answer is required</div>-->
+        </div>
         <div class="form-group text-center">
           <button uiSref="work" class="btn btn-success btn-outline-rounded btn-info" [disabled]="!personalForm.valid" (click)="save(personalForm)"> Next <span style="margin-left:10px;" class="glyphicon glyphicon-arrow-right"></span></button>
         </div>
       </div>
     </div>
   </div>
+
 </form>

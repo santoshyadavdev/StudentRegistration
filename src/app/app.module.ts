@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { UIRouterModule } from '@uirouter/angular'
+import { UIRouterModule } from '@uirouter/angular';
 import 'jquery/dist/jquery';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -13,9 +13,10 @@ import { ResultComponent } from './result/result.component';
 import { UIRouterConfigFn } from './app.router';
 import { appStates } from './app.states';
 import { NavbarComponent } from './navbar/navbar.component';
-import { CityProvider } from './data/cityDataModel';
+import { StateProvider } from './data/stateDataModel';
 import { FormDataService } from './data/formData.service';
 import { StudentComponent } from './student/student.component';
+import { TuitionpaymentComponent } from './tuitionpayment/tuitionpayment.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { StudentComponent } from './student/student.component';
     AddressComponent,
     ResultComponent,
     NavbarComponent,
-    StudentComponent
+    StudentComponent,
+    TuitionpaymentComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +40,7 @@ import { StudentComponent } from './student/student.component';
       config: UIRouterConfigFn
     })
   ],
-  providers: [{ provide: FormDataService, useClass: FormDataService }, CityProvider],
+  providers: [{ provide: FormDataService, useClass: FormDataService }, StateProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -2,6 +2,7 @@ import { PersonalComponent } from './personal/personal.component';
 import { WorkComponent } from './work/work.component';
 import { AddressComponent } from './address/address.component';
 import { ResultComponent } from './result/result.component';
+import { TuitionpaymentComponent } from './tuitionpayment/tuitionpayment.component'
 
 
 export const appStates = [
@@ -10,7 +11,7 @@ export const appStates = [
     // 2nd State:
     { name: 'work', url: '/work',  component: WorkComponent },
     // 3rd State
-    { name: 'address', url: '/address',  component: AddressComponent },
+    { name: 'payment', url: '/address',  component: TuitionpaymentComponent },
     // 4th State
     { name: 'result', url: '/result',  component: ResultComponent }
 ];

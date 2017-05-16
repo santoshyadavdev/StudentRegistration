@@ -11,6 +11,11 @@ export class FormData {
     state: string = '';
     zip: string = '';
     studentLastName: string = '';
+    mobile: string='';
+    homePhone: string='';
+    language: string='';
+    securityQuestion: string='';
+    securityAnswer: string='';
 
     clear() {
         this.firstName = '';
@@ -35,6 +40,11 @@ export class Personal {
     city: string = '';
     state: string = '';
     zip: string = '';
+    mobile: string='';
+    homePhone: string='';
+    language: string='';
+    securityQuestion: string='';
+    securityAnswer: string='';
 }
 
 export class Address {

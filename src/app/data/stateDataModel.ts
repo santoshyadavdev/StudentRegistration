@@ -1,8 +1,10 @@
-export class CityProvider {
-    cityList: city[];
+export class StateProvider {
+    stateList: states[];
+    languageData: string[];
+    securityQuestions: Array<string>;
 
-    getCityList() {
-        return this.cityList = [
+    getStatesList() {
+        return this.stateList = [
             { id: 58, statecode: "AA" },
             { id: 59, statecode: "AE" },
             { id: 2, statecode: "AK" },
@@ -67,10 +69,20 @@ export class CityProvider {
         ];
 
     }
+
+
+    getLangauge(){
+       return this.languageData = ['English' , 'Spanish'];
+    }
+
+    getSecurityQuestion(){
+       const securityQuestions: string[] = ['question1' , 'question2'];
+          return  this.securityQuestions = securityQuestions;
+    }
 }
 
 
-export interface city {
+export interface states {
     id: number;
     statecode: string
 }

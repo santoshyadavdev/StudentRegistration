@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { FormData, Personal, Address } from './formData.model';
+import { FormData, Personal, Address, Student } from './formData.model';
 
 @Injectable()
 export class FormDataService {
@@ -9,6 +9,7 @@ export class FormDataService {
     private isPersonalFormValid: boolean = false;
     private isWorkFormValid: boolean = false;
     private isAddressFormValid: boolean = false;
+    private studentDataValid : boolean = false;
 
     getPersonal(): Personal {
         // Return the Personal data
@@ -82,6 +83,17 @@ export class FormDataService {
         this.formData.city = data.city;
         this.formData.state = data.state;
         this.formData.zip = data.zip;
+    }
+
+    setStudents(data: Student[]) {
+        // Update the Address data only when the Address Form had been validated successfully
+        debugger
+        this.studentDataValid = true;
+        this.formData.students = data;
+    }
+
+    getStudents(){
+       return this.formData.students;
     }
 
     getFormData(): FormData {

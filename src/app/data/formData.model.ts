@@ -11,11 +11,15 @@ export class FormData {
     state: string = '';
     zip: string = '';
     studentLastName: string = '';
+<<<<<<< HEAD
     mobile: string='';
     homePhone: string='';
     language: string='';
     securityQuestion: string='';
     securityAnswer: string='';
+=======
+    students : Student[] = [];
+>>>>>>> c82ed360f97c144b58e00403b5758dbdead287c7
 
     clear() {
         this.firstName = '';
@@ -52,4 +56,11 @@ export class Address {
     city: string = '';
     state: string = '';
     zip: string = '';
+}
+
+
+export class Student {
+    firstName: string;
+    lastName: string;
+    grade: string;
 }

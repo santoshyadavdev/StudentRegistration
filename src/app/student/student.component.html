@@ -15,26 +15,18 @@
             <div class="panel-body" [formGroupName]="i">
               <div class="form-group col-xs-6">
                 <label>First Name</label>
-                <input type="text" class="form-control"  formControlName="firstName" [(ngModel)]="studentsData[i].firstName">
-                <small [hidden]="myForm.controls.students.controls[i].controls.firstName.valid" class="text-danger">
-                    First Name  is required
-                </small>
+                <input type="text" class="form-control"  required formControlName="firstName" [(ngModel)]="studentsData[i].firstName">
               </div>
               <div class="form-group col-xs-6">
                 <label>Last Name</label>
-                <input type="text" class="form-control"  formControlName="lastName" [(ngModel)]="studentsData[i].lastName">
-                <small [hidden]="myForm.controls.students.controls[i].controls.lastName.valid" class="text-danger">
-                   Last Name  is required
-                </small>
+                <input type="text" class="form-control" required formControlName="lastName" [(ngModel)]="studentsData[i].lastName">
               </div>
               <div class="form-group col-xs-6">
                 <label>Grade</label>
                 <select class="form-control input-md" required  formControlName="grade" [(ngModel)]="studentsData[i].grade">
                     <option *ngFor="let c of gradeList" [value]="c.gradeCode" >{{c.gradeCode}}</option>
               </select>
-                <small [hidden]="myForm.controls.students.controls[i].controls.grade.valid" class="text-danger">
-                    Grade Name is required
-                </small>
+
               </div>
             </div>
           </div>

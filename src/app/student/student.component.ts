@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormArray, FormBuilder, Validators } from '@angular/forms';
 import { FormData, Student } from '../data/formData.model'
 import { FormDataService } from '../data/formData.service'
-import { GradeProvider, grade } from '../data/cityDataModel';
+import { GradeProvider, StateProvider, grade } from '../data/stateDataModel';
 @Component({
     selector: 'app-student',
     templateUrl: './student.component.html',

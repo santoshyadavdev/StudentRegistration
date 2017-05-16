@@ -13,11 +13,7 @@ import { ResultComponent } from './result/result.component';
 import { UIRouterConfigFn } from './app.router';
 import { appStates } from './app.states';
 import { NavbarComponent } from './navbar/navbar.component';
-<<<<<<< HEAD
-import { StateProvider } from './data/stateDataModel';
-=======
-import { CityProvider, GradeProvider} from './data/cityDataModel';
->>>>>>> c82ed360f97c144b58e00403b5758dbdead287c7
+import { StateProvider, GradeProvider } from './data/stateDataModel';
 import { FormDataService } from './data/formData.service';
 import { StudentComponent } from './student/student.component';
 import { TuitionpaymentComponent } from './tuitionpayment/tuitionpayment.component';
@@ -45,11 +41,7 @@ import { TuitionpaymentComponent } from './tuitionpayment/tuitionpayment.compone
       config: UIRouterConfigFn
     })
   ],
-<<<<<<< HEAD
-  providers: [{ provide: FormDataService, useClass: FormDataService }, StateProvider],
-=======
-  providers: [{ provide: FormDataService, useClass: FormDataService }, StateProvider,GradeProvider],
->>>>>>> c82ed360f97c144b58e00403b5758dbdead287c7
+  providers: [{ provide: FormDataService, useClass: FormDataService }, StateProvider, GradeProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

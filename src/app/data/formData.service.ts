@@ -9,7 +9,7 @@ export class FormDataService {
     private isPersonalFormValid: boolean = false;
     private isWorkFormValid: boolean = false;
     private isAddressFormValid: boolean = false;
-    private studentDataValid : boolean = false;
+    private studentDataValid: boolean = false;
 
     getPersonal(): Personal {
         // Return the Personal data
@@ -19,11 +19,11 @@ export class FormDataService {
             email: this.formData.email,
             secondPayerFirstName: this.formData.secondPayerFirstName,
             secondPayerLastName: this.formData.secondPayerLastName,
-            addressLine1 : this.formData.addressLine1,
-            addressLine2 : this.formData.addressLine2,
-            city : this.formData.city,
-            state : this.formData.state,
-            zip : this.formData.zip,
+            addressLine1: this.formData.addressLine1,
+            addressLine2: this.formData.addressLine2,
+            city: this.formData.city,
+            state: this.formData.state,
+            zip: this.formData.zip,
             mobile: this.formData.mobile,
             homePhone: this.formData.homePhone,
             language: this.formData.language,
@@ -87,13 +87,12 @@ export class FormDataService {
 
     setStudents(data: Student[]) {
         // Update the Address data only when the Address Form had been validated successfully
-        debugger
         this.studentDataValid = true;
         this.formData.students = data;
     }
 
-    getStudents(){
-       return this.formData.students;
+    getStudents() {
+        return this.formData.students;
     }
 
     getFormData(): FormData {

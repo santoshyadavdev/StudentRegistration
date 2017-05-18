@@ -9,13 +9,13 @@ import { GradeProvider, StateProvider, grade } from '../data/stateDataModel';
     styleUrls: ['./student.component.css']
 })
 export class StudentComponent implements OnInit {
-
+    public maxStudent: boolean = true;
     public myForm: FormGroup;
     studentsData: Student[] = [
         {
             firstName: '',
-            lastName:'',
-            grade:''
+            lastName: '',
+            grade: ''
         }
     ];
     gradeList: grade[];
@@ -27,7 +27,7 @@ export class StudentComponent implements OnInit {
             students: this._fb.array([])
         });
         this.buildForm();
-        this.gradeList = this._gradeProvider.getGradeList()
+        this.gradeList = this._gradeProvider.getGradeList();
 
     }
 
@@ -35,10 +35,16 @@ export class StudentComponent implements OnInit {
         const studentControls = <FormArray>this.myForm.controls['students'];
 
         this.studentsData = this._formService.getStudents();
-        this.studentsData.forEach((stud: Student) => {
-            studentControls.push(this.createStudentFormGroup(stud));
-            console.log(studentControls);
-        });
+        if (this.studentsData.length > 0) {
+            console.log('1');
+            this.studentsData.forEach((stud: Student) => {
+                studentControls.push(this.createStudentFormGroup(stud));
+                console.log(studentControls);
+            });
+        }
+        else {
+            this.addStudent();
+        }
     }
 
 
@@ -61,11 +67,15 @@ export class StudentComponent implements OnInit {
     addStudent() {
         const control = <FormArray>this.myForm.controls['students'];
         this.studentsData.push({
-                firstName:'',
-                lastName:'',
-                grade:''
+            firstName: '',
+            lastName: '',
+            grade: ''
         });
         control.push(this.initStudent());
+        this.maxStudent = this.studentsData.length >= 5 ? false : true;
+        console.log(this.studentsData.length);
+        console.log(this.maxStudent);
+
     }
 
     removeStudent(i: number) {

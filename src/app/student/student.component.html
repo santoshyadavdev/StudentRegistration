@@ -32,7 +32,7 @@
           </div>
         </div>
 
-        <div class="margin-20">
+        <div class="margin-20" *ngIf="maxStudent">
           <a (click)="addStudent()" style="cursor: default">
             Add another student +
           </a>

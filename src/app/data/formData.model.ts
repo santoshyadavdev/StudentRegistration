@@ -11,13 +11,13 @@ export class FormData {
     state: string = '';
     zip: string = '';
     studentLastName: string = '';
-    mobile: string='';
-    homePhone: string='';
-    language: string='';
-    securityQuestion: string='';
-    securityAnswer: string='';
-
-    students : Student[] = [];
+    mobile: string = '';
+    homePhone: string = '';
+    language: string = '';
+    securityQuestion: string = '';
+    securityAnswer: string = '';
+    students: Student[] = [];
+    feesDue: FeesDue = new FeesDue();
 
 
     clear() {
@@ -43,11 +43,11 @@ export class Personal {
     city: string = '';
     state: string = '';
     zip: string = '';
-    mobile: string='';
-    homePhone: string='';
-    language: string='';
-    securityQuestion: string='';
-    securityAnswer: string='';
+    mobile: string = '';
+    homePhone: string = '';
+    language: string = '';
+    securityQuestion: string = '';
+    securityAnswer: string = '';
 }
 
 export class Address {
@@ -63,3 +63,19 @@ export class Student {
     lastName: string;
     grade: string;
 }
+
+export class FeesDue {
+    ccFeeAmount: number = 0;
+    feeRows: Fees[] = [];
+    feeSubTotalRows: Fees = new Fees();
+    feeTotalRow: Fees = new Fees();
+}
+
+export class Fees {
+    name: string;
+    feeTypeId: number;
+    amounts: number[];
+    total: number;
+    feeDueImmediately: boolean;
+}
+

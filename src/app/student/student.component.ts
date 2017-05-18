@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormArray, FormBuilder, Validators } from '@angular/forms';
-import { FormData, Student } from '../data/formData.model'
-import { FormDataService } from '../data/formData.service'
+import { FormData, Student } from '../data/formData.model';
+import { FormDataService } from '../data/formData.service';
 import { GradeProvider, StateProvider, grade } from '../data/stateDataModel';
 @Component({
     selector: 'app-student',
@@ -72,15 +72,18 @@ export class StudentComponent implements OnInit {
             grade: ''
         });
         control.push(this.initStudent());
-        this.maxStudent = this.studentsData.length >= 5 ? false : true;
-        console.log(this.studentsData.length);
-        console.log(this.maxStudent);
-
+        this.setMaxStudent();
     }
 
     removeStudent(i: number) {
         const control = <FormArray>this.myForm.controls['students'];
         control.removeAt(i);
+        this.studentsData.pop();
+        this.setMaxStudent();
+    }
+
+    setMaxStudent() {
+        this.maxStudent = this.studentsData.length >= 5 ? false : true;
     }
 
     save(model: Student[]) {

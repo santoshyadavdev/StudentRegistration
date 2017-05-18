@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { FormData, Personal, Address, Student } from './formData.model';
+import { FormData, Personal, Address, Student, FeesDue, Fees } from './formData.model';
 
 @Injectable()
 export class FormDataService {
@@ -98,6 +98,41 @@ export class FormDataService {
     getFormData(): FormData {
         // Return the entire Form Data
         return this.formData;
+    }
+
+    getRegistrationFee() {
+        let feesData: FeesDue = {
+            ccFeeAmount: 0,
+            feeRows: [{
+                name: 'Registration Fee',
+                feeDueImmediately: true,
+                feeTypeId: 1251,
+                amounts: [50.00, 50.00, 0],
+                total: 100.00
+            },
+            {
+                name: 'Smart Administrative Fee',
+                feeTypeId: 1262,
+                amounts: [0.0, 0.0, 100.00],
+                total: 100.00,
+                feeDueImmediately: true
+            }],
+            feeSubTotalRows: {
+                name: 'Fees Due Immediately',
+                feeTypeId: 0,
+                amounts: [50.00, 50.00, 100.00],
+                total: 200.00,
+                feeDueImmediately: true
+            },
+            feeTotalRow: {
+                name: 'Total Fees',
+                feeTypeId: 0,
+                amounts: [50.00, 50.00, 100.00],
+                total: 200.00,
+                feeDueImmediately: true
+            }
+        };
+        return this.formData.feesDue = feesData;
     }
 
     resetFormData(): FormData {

@@ -1,3 +1,47 @@
+{{feesData.ccFeeAmount}}
+<hr/> {{feesData.feeRows | json}}
+<hr/> {{feesData.feeSubTotalRows | json}}
+<hr/> {{feesData.feeTotalRow | json}}
+
+<table class="table">
+  <tr>
+    <td>
+      <strong>Tuition and Fees Due</strong>
+    </td>
+    <td *ngFor="let stud of students;let i=index">
+      <strong>{{stud.firstName}}</strong>
+    </td>
+    <td>
+      <strong>Family Fees</strong>
+    </td>
+    <td>
+      <strong>Total</strong>
+    </td>
+  </tr>
+  <tr *ngFor="let fee of feesData.feeRows;let i=index">
+    <td>
+      {{fee.name}}
+    </td>
+    <td *ngFor="let amount of fee.amounts;let j=index">
+      {{amount}}
+    </td>
+    <td>
+      {{fee.total}}
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Sub Total
+    </td>
+    <td *ngFor="let amount of feesData.feeTotalRow.amounts;let j=index"> 
+        {{amount}}
+    </td>
+    <td>
+      {{feesData.feeTotalRow.total}}
+    </td>
+  </tr>
+</table>
+
 <table class="table">
   <thead>
     <tr>

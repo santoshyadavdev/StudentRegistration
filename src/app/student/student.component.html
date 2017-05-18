@@ -4,18 +4,18 @@
       <div class="margin-20">
         <h4>Add Student</h4>
       </div>
-      <form [formGroup]="myForm" novalidate >
-    
+      <form [formGroup]="myForm" novalidate>
+
         <div formArrayName="students">
           <div *ngFor="let student of myForm.controls.students.controls; let i=index" class="panel panel-default">
             <div class="panel-heading">
-              <span>student {{i + 1}}</span> 
+              <span>student {{i + 1}}</span>
               <span class="glyphicon glyphicon-remove pull-right" *ngIf="myForm.controls.students.controls.length > 1" (click)="removeStudent(i)"></span>
             </div>
             <div class="panel-body" [formGroupName]="i">
               <div class="form-group col-xs-6">
                 <label>First Name</label>
-                <input type="text" class="form-control"  required formControlName="firstName" [(ngModel)]="studentsData[i].firstName">
+                <input type="text" class="form-control" required formControlName="firstName" [(ngModel)]="studentsData[i].firstName">
               </div>
               <div class="form-group col-xs-6">
                 <label>Last Name</label>
@@ -23,7 +23,7 @@
               </div>
               <div class="form-group col-xs-6">
                 <label>Grade</label>
-                <select class="form-control input-md" required  formControlName="grade" [(ngModel)]="studentsData[i].grade">
+                <select class="form-control input-md" required formControlName="grade" [(ngModel)]="studentsData[i].grade">
                     <option *ngFor="let c of gradeList" [value]="c.gradeCode" >{{c.gradeCode}}</option>
               </select>
 
@@ -37,10 +37,14 @@
             Add another student +
           </a>
         </div>
+        <div *ngIf="!maxStudent">
+          * If you are looking to add more students to your account please complete your enroll with smart form here then call us at
+          (888) 868-8828 to add more students.
+        </div>
 
         <div class="margin-20">
-          <button uiSref="personal" class="btn btn-primary pull-left" > <span style="margin-right:10px;" class="glyphicon glyphicon-arrow-left"> Previous</span></button>
-          <button uiSref="result" type="submit" (click)="save(myForm.controls.students.value)"  class="btn btn-primary pull-right" [disabled]="!myForm.valid"> Next <span style="margin-left:10px;" class="glyphicon glyphicon-arrow-right"></span></button>
+          <button uiSref="personal" class="btn btn-primary pull-left"> <span style="margin-right:10px;" class="glyphicon glyphicon-arrow-left"> Previous</span></button>
+          <button uiSref="result" type="submit" (click)="save(myForm.controls.students.value)" class="btn btn-primary pull-right" [disabled]="!myForm.valid"> Next <span style="margin-left:10px;" class="glyphicon glyphicon-arrow-right"></span></button>
         </div>
         <div class="clearfix"></div>
 

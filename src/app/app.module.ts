@@ -17,6 +17,8 @@ import { StateProvider, GradeProvider } from './data/stateDataModel';
 import { FormDataService } from './data/formData.service';
 import { StudentComponent } from './student/student.component';
 import { TuitionpaymentComponent } from './tuitionpayment/tuitionpayment.component';
+import { LogincomponentComponent } from './logincomponent/logincomponent.component';
+import { PaymentmodesComponent } from './paymentmodes/paymentmodes.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { TuitionpaymentComponent } from './tuitionpayment/tuitionpayment.compone
     ResultComponent,
     NavbarComponent,
     StudentComponent,
-    TuitionpaymentComponent
+    TuitionpaymentComponent,
+    LogincomponentComponent,
+    PaymentmodesComponent
   ],
   imports: [
     BrowserModule,

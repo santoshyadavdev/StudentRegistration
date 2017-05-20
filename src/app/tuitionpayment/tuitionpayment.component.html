@@ -1,20 +1,17 @@
-{{feesData.ccFeeAmount}}
-<hr/> {{feesData.feeRows | json}}
-<hr/> {{feesData.feeSubTotalRows | json}}
-<hr/> {{feesData.feeTotalRow | json}}
+ 
 
 <table class="table">
   <tr>
     <td>
       <strong>Tuition and Fees Due</strong>
     </td>
-    <td *ngFor="let stud of students;let i=index">
+    <td class="text-right" *ngFor="let stud of students;let i=index">
       <strong>{{stud.firstName}}</strong>
     </td>
-    <td>
+    <td class="text-right">
       <strong>Family Fees</strong>
     </td>
-    <td>
+    <td class="text-right">
       <strong>Total</strong>
     </td>
   </tr>
@@ -22,10 +19,10 @@
     <td>
       {{fee.name}}
     </td>
-    <td *ngFor="let amount of fee.amounts;let j=index">
+    <td class="text-right" *ngFor="let amount of fee.amounts;let j=index">
       {{amount}}
     </td>
-    <td>
+    <td class="text-right">
       {{fee.total}}
     </td>
   </tr>
@@ -33,100 +30,23 @@
     <td>
       Sub Total
     </td>
-    <td *ngFor="let amount of feesData.feeTotalRow.amounts;let j=index"> 
-        {{amount}}
+    <td class="text-right" *ngFor="let amount of feesData.feeTotalRow.amounts;let j=index"> 
+        {{amount | currency : 'USD':false}}
     </td>
-    <td>
+    <td class="text-right">
       {{feesData.feeTotalRow.total}}
     </td>
   </tr>
+  <tr *ngIf="feesData.ccFeeAmount>0">
+    <td>
+    </td>
+    <td>
+
+    </td>
+  </tr>
+  <tr>    
+      <td class="text-right" colspan="4">Total Due </td>
+      <td class="text-right">  {{feesData.feeTotalRow.total}}</td>
+  </tr>
 </table>
-
-<table class="table">
-  <thead>
-    <tr>
-      <th>
-        Tuition And Fees Due
-      </th>
-      <th class="text-right">
-        Student1
-      </th>
-      <th class="text-right">
-        Student2
-      </th>
-      <th class="text-right">
-        Family Fees
-      </th>
-      <th class="text-right">
-        Total
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        Registration Fee
-      </td>
-      <td class="text-right">
-        $50
-      </td>
-      <td class="text-right">
-        $50
-      </td>
-      <td class="text-right">$0.0</td>
-      <td class="text-right">
-        $100
-      </td>
-    </tr>
-    <tr>
-      <td>
-        Smart Admin Fee
-      </td>
-      <td class="text-right">
-        $0.00
-      </td>
-      <td class="text-right">
-        $0.00
-      </td>
-      <td class="text-right">
-        $100
-      </td>
-      <td class="text-right">
-        $100
-      </td>
-    </tr>
-    <tr>
-      <td>
-        Sub Total
-      </td>
-      <td class="text-right">
-        $50.00
-      </td>
-      <td class="text-right">
-        $50.00
-      </td>
-      <td class="text-right">
-        $100
-      </td>
-      <td class="text-right">
-        $200
-      </td>
-    </tr>
-    <tr>
-      <td colspan="4" class="text-right">Credit Card Convenience Fee</td>
-      <td class="text-right">$5.30 </td>
-    </tr>
-    <tr>
-      <td colspan="3" class="text-left">
-
-      </td>
-      <td class="text-right">
-        Total Due
-      </td>
-      <td class="text-right">
-        $200
-      </td>
-    </tr>
-
-  </tbody>
-</table>
+ 

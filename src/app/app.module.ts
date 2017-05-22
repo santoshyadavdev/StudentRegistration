@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { UIRouterModule } from '@uirouter/angular';
 import 'jquery/dist/jquery';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { PersonalComponent } from './personal/personal.component';
@@ -17,6 +18,8 @@ import { StateProvider, GradeProvider } from './data/stateDataModel';
 import { FormDataService } from './data/formData.service';
 import { StudentComponent } from './student/student.component';
 import { TuitionpaymentComponent } from './tuitionpayment/tuitionpayment.component';
+import { LogincomponentComponent } from './logincomponent/logincomponent.component';
+import { PaymentmodesComponent } from './paymentmodes/paymentmodes.component';
 
 @NgModule({
   declarations: [
@@ -28,9 +31,12 @@ import { TuitionpaymentComponent } from './tuitionpayment/tuitionpayment.compone
     ResultComponent,
     NavbarComponent,
     StudentComponent,
-    TuitionpaymentComponent
+    TuitionpaymentComponent,
+    LogincomponentComponent,
+    PaymentmodesComponent
   ],
   imports: [
+    NgbModule.forRoot(),
     BrowserModule,
     FormsModule,
     HttpModule,

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import 'rxjs'
 import { Personal } from '../data/formData.model';
 import { FormDataService } from '../data/formData.service';
 import { StateProvider, states } from '../data/stateDataModel';
@@ -17,9 +18,9 @@ export class PersonalComponent implements OnInit {
   constructor(private formDataService: FormDataService, private _stateProvider: StateProvider) { }
 
   ngOnInit() {
-    this.personal = this.formDataService.getPersonal();
+    this.personal = this.formDataService.getPersonal()//.subscribe(data => this.personal = data);
     console.log('Personal feature loaded!');
-    this.statesList  =  this._stateProvider.getStatesList();
+    this.statesList = this._stateProvider.getStatesList();
     this.languages = this._stateProvider.getLangauge();
     this.securityQuestions = this._stateProvider.getSecurityQuestion();
   }

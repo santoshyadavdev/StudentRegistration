@@ -3,7 +3,7 @@
     <p class="narrow text-center">
         Here is a copy of the information you have entered:
     </p>
-    <div class='row'>
+    <!--<div class='row'>
         <div class='col-xs-offset-1 col-xs-10 col-sm-offset-3 col-sm-8 col-md-offset-4 col-md-8'>
             <div class="row">
                 <div class='col-xs-3 col-sm-2'>
@@ -48,7 +48,74 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>-->
+   <div class="container">
+     <div class="panel-group">
+         <div class="panel panel-primary">
+             <div class="panel-heading">Personal Information</div>
+             <div class="panel-body">
+                 <div class="row">
+                     <div class="col-md-2"><label>Name</label></div>
+                     <div class="col-md-10">{{formData.firstName + ' ' + formData.lastName}}</div>
+                 </div>       
+                <div class="row">
+                     <div class="col-md-2"><label>Address</label></div>
+                     <div class="col-md-10">
+                        {{fullAddress}}
+                     </div>
+                 </div>
+                <div class="row">
+                     <label class="control-label  col-md-2">Email</label>
+                     <div class="col-md-10">{{formData.email}}</div>
+                 </div>
+                 <div class="row">
+                     <label class="control-label  col-md-2">Mobile</label>
+                     <div class="col-md-10">{{formData.mobile}}</div>
+                 </div>
+                <div class="row">
+                     <div class="col-md-2"><label>HomePhone</label></div>
+                     <div class="col-md-10">{{formData.homePhone}}</div>
+                 </div>
+                <div class="row">
+                     <div class="col-md-2"><label>Security Question</label></div>
+                     <div class="col-md-10">{{formData.securityQuestion}}</div>
+                 </div>
+                <div class="row">
+                     <div class="col-md-2"><label>Security Answer</label></div>
+                     <div class="col-md-10">{{formData.securityAnswer}}</div>
+                 </div>
+             </div>
+         </div>
+         <div class="panel panel-primary">
+            <div class="panel-heading">Student Information</div>
+            <div class="panel body">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <td class="col-md-1"><label>Student Name</label></td>
+                            <td class="col-md-1"><label>Grade</label></td>
+                        </tr>
+                    </thead>
+                    <tbody  *ngFor="let stud of students;" >
+                        <tr>
+                            <td>{{stud.firstName +' '+ stud.lastName}}</td>
+                            <td>{{stud.grade}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+         </div>    
+     </div>
+       <div class="panel panel-primary">
+            <div class="panel-heading">Tuition Information</div>
+            <div class="panel-body"*ngFor="let amount of feesData.feeTotalRow.amounts;let j=index">
+                <strong>Amount :</strong>  {{feesData.feeTotalRow.total}}
+            </div>
+        </div>
+  </div>
+     
+
+   </div>
+
     <div class="text-center">
         <button class="btn btn-success btn-outline-rounded" [disabled]="!isFormValid" (click)="submit()"> Submit <span style="margin-left:10px;" class="glyphicon glyphicon-arrow-right"></span></button>
     </div>

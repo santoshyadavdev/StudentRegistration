@@ -12,7 +12,7 @@ export const appStates = [
     { name: 'personal', url: '/personal',  component: PersonalComponent },
     { name: 'student', url: '/student',  component: StudentComponent },
     // 3rd State
-    { name: 'payment', url: '/address',  component: TuitionpaymentComponent },
+    { name: 'payment', url: '/payment',  component: TuitionpaymentComponent },
     // 4th State
     { name: 'result', url: '/result',  component: ResultComponent }
 ];

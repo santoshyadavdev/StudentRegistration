@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http'
-import { Observable  } from "rxjs";
+import { Observable } from "rxjs";
 
-import { FormData, Personal, Address, Student, FeesDue, Fees } from './formData.model';
+import { FormData, Personal, Address, Student, FeesDue, Fees, PaymentPlans } from './formData.model';
 
 @Injectable()
 export class FormDataService {
@@ -149,5 +149,89 @@ export class FormDataService {
         return this.isPersonalFormValid &&
             this.isWorkFormValid &&
             this.isAddressFormValid;
+    }
+
+    getpaymentPlans() {
+        let paymentPlans: PaymentPlans[] = [
+            {
+                paymentPlanId: 176891,
+                formCode: 'B',
+                planType: 'Regular',
+                planName: '12 Month',
+                months: '',
+                paymentSpanString: 'Jun-May',
+                internalPaymentCount: 12,
+                paymentCount: 12,
+                allowAutoPayments: true,
+                allowMailInPayments: true,
+                allowACH: true,
+                allowCCs: true,
+                autoPaymentDays: [
+                    {
+                        day: 5,
+                        dayString: '5th',
+                        paymentDayType: 850
+                    },
+                    {
+                        day: 20,
+                        dayString: '20th',
+                        paymentDayType: 850
+                    }
+                ],
+                mailInPaymentDays: [
+                    {
+                        day: 5,
+                        dayString: '5th',
+                        paymentDayType: 851
+                    },
+                    {
+                        day: 20,
+                        dayString: '20th',
+                        paymentDayType: 851
+                    }
+                ]
+            },
+            {
+                paymentPlanId: 176892,
+                formCode: 'D',
+                planType: 'Regular',
+                planName: '10 Month',
+                months: '',
+                paymentSpanString: 'Aug-May',
+                internalPaymentCount: 10,
+                paymentCount: 10,
+                allowAutoPayments: true,
+                allowMailInPayments: true,
+                allowACH: true,
+                allowCCs: true,
+                autoPaymentDays: [
+                    {
+                        day: 5,
+                        dayString: '5th',
+                        paymentDayType: 850
+                    },
+                    {
+                        day: 20,
+                        dayString: '20th',
+                        paymentDayType: 850
+                    }
+                ],
+                mailInPaymentDays: [
+                    {
+                        day: 5,
+                        dayString: '5th',
+                        paymentDayType: 851
+                    },
+                    {
+                        day: 20,
+                        dayString: '20th',
+                        paymentDayType: 851
+                    }
+                ]
+
+            }
+        ];
+
+        return paymentPlans;
     }
 }

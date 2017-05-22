@@ -20,6 +20,7 @@ import { StudentComponent } from './student/student.component';
 import { TuitionpaymentComponent } from './tuitionpayment/tuitionpayment.component';
 import { LogincomponentComponent } from './logincomponent/logincomponent.component';
 import { PaymentmodesComponent } from './paymentmodes/paymentmodes.component';
+import { PaymentplanComponent } from './paymentplan/paymentplan.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { PaymentmodesComponent } from './paymentmodes/paymentmodes.component';
     StudentComponent,
     TuitionpaymentComponent,
     LogincomponentComponent,
-    PaymentmodesComponent
+    PaymentmodesComponent,
+    PaymentplanComponent
   ],
   imports: [
     NgbModule.forRoot(),

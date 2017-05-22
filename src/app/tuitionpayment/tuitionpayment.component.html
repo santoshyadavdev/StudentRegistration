@@ -1,4 +1,3 @@
-
 <table class="table">
   <tr>
     <td>
@@ -29,32 +28,28 @@
     <td>
       Sub Total
     </td>
-    <td class="text-right" *ngFor="let amount of feesData.feeTotalRow.amounts;let j=index"> 
-        {{amount | currency : 'USD':false}}
+    <td class="text-right" *ngFor="let amount of feesData.feeTotalRow.amounts;let j=index">
+      {{amount | currency : 'USD':false}}
     </td>
     <td class="text-right">
       {{feesData.feeTotalRow.total}}
     </td>
   </tr>
   <tr *ngIf="feesData.ccFeeAmount>0">
-    <td>
-    </td>
-    <td>
-
-  </tbody>
-</table>
-      
-
-  <div class="margin-20">
-          <button uiSref="student" class="btn btn-primary pull-left"> <span style="margin-right:10px;" class="glyphicon glyphicon-arrow-left"> Previous</span></button>
-          <button uiSref="result" type="submit"  class="btn btn-primary pull-right" > Next <span style="margin-left:10px;" class="glyphicon glyphicon-arrow-right"></span></button>
-        </div>
-
-    </td>
+    <td class="text-right" colspan="4">Total Due </td>
+    <td class="text-right"> {{feesData.feeTotalRow.total}}</td>
   </tr>
-  <tr>    
-      <td class="text-right" colspan="4">Total Due </td>
-      <td class="text-right">  {{feesData.feeTotalRow.total}}</td>
+  <tr>
+    <td  class="text-right" colspan="4">
+      Total
+    </td>
+    <td class="text-right">
+      {{feesData.feeTotalRow.total}}
+    </td>
   </tr>
 </table>
 
+<div class="margin-20">
+  <button uiSref="student" class="btn btn-primary pull-left"> <span style="margin-right:10px;" class="glyphicon glyphicon-arrow-left"> Previous</span></button>
+  <button uiSref="result" type="submit" class="btn btn-primary pull-right"> Next <span style="margin-left:10px;" class="glyphicon glyphicon-arrow-right"></span></button>
+</div>

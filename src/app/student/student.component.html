@@ -46,13 +46,7 @@
           <button uiSref="personal" class="btn btn-primary pull-left"> <span style="margin-right:10px;" class="glyphicon glyphicon-arrow-left"> Previous</span></button>
           <button uiSref="payment" type="submit" (click)="save(myForm.controls.students.value)" class="btn btn-primary pull-right" [disabled]="!myForm.valid"> Next <span style="margin-left:10px;" class="glyphicon glyphicon-arrow-right"></span></button>
         </div>
-        <div class="clearfix"></div>
-
-        <div class="margin-20">
-          <div>myForm details:-</div>
-          <pre>Is myForm valid?: <br>{{myForm.valid | json}}</pre>
-          <pre>form value: <br>{{myForm.value | json}}</pre>
-        </div>
+        <div class="clearfix"></div>     
       </form>
     </div>
   </div>

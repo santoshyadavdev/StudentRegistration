@@ -1,3 +1,14 @@
-<p>
-  {{paymentPlans | json}}
-</p>
+
+<div class="row">
+  <div *ngFor="let plan of paymentPlans;let i=index">
+    <div appHighlightPayment class="col-md-2 text-center" style="border:1px solid #cecece;margin-left: 20px;">
+      <div>I want to make</div>
+      <div>{{plan.paymentCount}}</div>
+      <div>{{plan.paymentCount ===1  ? 'Payment' : 'Payments' | uppercase}}</div>
+      <div>{{plan.paymentSpanString}}</div>
+      <hr>
+      <div>"{{plan.planName}}"</div>
+    </div>
+  </div>
+ <div class="clear"></div>
+</div>

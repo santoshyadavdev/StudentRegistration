@@ -21,6 +21,7 @@ import { TuitionpaymentComponent } from './tuitionpayment/tuitionpayment.compone
 import { LogincomponentComponent } from './logincomponent/logincomponent.component';
 import { PaymentmodesComponent } from './paymentmodes/paymentmodes.component';
 import { PaymentplanComponent } from './paymentplan/paymentplan.component';
+import { HighlightPaymentDirective } from './highlight-payment.directive';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { PaymentplanComponent } from './paymentplan/paymentplan.component';
     TuitionpaymentComponent,
     LogincomponentComponent,
     PaymentmodesComponent,
-    PaymentplanComponent
+    PaymentplanComponent,
+    HighlightPaymentDirective
   ],
   imports: [
     NgbModule.forRoot(),

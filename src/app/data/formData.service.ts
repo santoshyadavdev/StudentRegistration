@@ -154,10 +154,10 @@ export class FormDataService {
             this.isWorkFormValid &&
             this.isAddressFormValid;
     }
-<<<<<<< HEAD
+
     getPaymentDetails():PaymentDetails{
         return this.formData.paymentDetails;
-=======
+    }
 
     getpaymentPlans() {
         let paymentPlans: PaymentPlans[] = [
@@ -241,6 +241,5 @@ export class FormDataService {
         ];
 
         return paymentPlans;
->>>>>>> d34ebb50cf54e18e04c8f2fcb3571529f19bfeea
     }
 }

@@ -18,7 +18,7 @@ export class PersonalComponent implements OnInit {
   constructor(private formDataService: FormDataService, private _stateProvider: StateProvider) { }
 
   ngOnInit() {
-    this.personal = this.formDataService.getPersonal()//.subscribe(data => this.personal = data);
+    this.personal = this.formDataService.getPersonal();
     console.log('Personal feature loaded!');
     this.statesList = this._stateProvider.getStatesList();
     this.languages = this._stateProvider.getLangauge();

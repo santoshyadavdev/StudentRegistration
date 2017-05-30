@@ -20,6 +20,8 @@ import { StudentComponent } from './student/student.component';
 import { TuitionpaymentComponent } from './tuitionpayment/tuitionpayment.component';
 import { LogincomponentComponent } from './logincomponent/logincomponent.component';
 import { PaymentmodesComponent } from './paymentmodes/paymentmodes.component';
+import { PaymentdetailsComponent } from './paymentdetails/paymentdetails.component';
+import { PaymentProvider } from './data/paymentData.model'
 
 @NgModule({
   declarations: [
@@ -33,7 +35,8 @@ import { PaymentmodesComponent } from './paymentmodes/paymentmodes.component';
     StudentComponent,
     TuitionpaymentComponent,
     LogincomponentComponent,
-    PaymentmodesComponent
+    PaymentmodesComponent,
+    PaymentdetailsComponent,
   ],
   imports: [
     NgbModule.forRoot(),
@@ -47,7 +50,7 @@ import { PaymentmodesComponent } from './paymentmodes/paymentmodes.component';
       config: UIRouterConfigFn
     })
   ],
-  providers: [{ provide: FormDataService, useClass: FormDataService }, StateProvider, GradeProvider],
+  providers: [{ provide: FormDataService, useClass: FormDataService }, StateProvider, GradeProvider,PaymentProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

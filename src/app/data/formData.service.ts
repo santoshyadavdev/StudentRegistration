@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http'
 import { Observable  } from "rxjs";
 
-import { FormData, Personal, Address, Student, FeesDue, Fees } from './formData.model';
+import { FormData, Personal, Address, Student, FeesDue, Fees,PaymentDetails } from './formData.model';
 
 @Injectable()
 export class FormDataService {
@@ -149,5 +149,8 @@ export class FormDataService {
         return this.isPersonalFormValid &&
             this.isWorkFormValid &&
             this.isAddressFormValid;
+    }
+    getPaymentDetails():PaymentDetails{
+        return this.formData.paymentDetails;
     }
 }

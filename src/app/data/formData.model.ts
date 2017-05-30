@@ -18,7 +18,7 @@ export class FormData {
     securityAnswer: string = '';
     students: Student[] = [];
     feesDue: FeesDue = new FeesDue();
-
+    paymentDetails:PaymentDetails = new PaymentDetails();
 
     clear() {
         this.firstName = '';
@@ -79,3 +79,14 @@ export class Fees {
     feeDueImmediately: boolean;
 }
 
+export class PaymentDetails{
+    paymentMethod:string;
+    firstName:string;
+    lastName:string;
+    ccNumber:number;
+    ccExpiryMonth:string;
+    ccExpiryYear:string;
+    bankAccountNumber:number;
+    bankRouting:number;
+    bankAccountType:string;
+}

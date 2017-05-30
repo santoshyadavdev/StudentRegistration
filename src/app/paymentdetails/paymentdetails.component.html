@@ -1,0 +1,69 @@
+<form #paymentDetailsForm="ngForm">
+  <div class="row">
+    <div class="col-md-12">
+        <select [(ngModel)]="paymentDetails.paymentMethod"  required #paymentMethod="ngModel" class="form-control" name="paymentMethod" >
+            <option *ngFor="let p of paymentMethods; let itemIndex = index"  [selected]="itemIndex == 0">{{p.paymentMethodCode}}</option>
+        </select>
+    </div>
+  </div>
+  <div class="row">
+     <div class="col-md-12">
+          <div class="col-md-6">
+              <label class="control-label" for="firstname">First Name</label>
+              <input class="form-control" required id="firstname" name="firstname" type="text" placeholder="First Name"
+                [(ngModel)]="paymentDetails.firstName">
+          </div>
+           <div class="col-md-6">
+              <label class="control-label" for="lastName">Last Name</label>
+              <input class="form-control" required id="lastName" name="lastName" type="text" placeholder="Last Name"
+                [(ngModel)]="paymentDetails.lastName">
+          </div>
+        </div>
+  </div>
+<!--credit card-->
+<div ngSwitch= {{paymentDetails.paymentMethod}} > 
+  <div class="row"  *ngSwitchCase="'Charge My Credit Card'">
+     <div class="col-md-12">
+          <div class="col-md-6">
+              <label class="control-label" for="ccNumber">Card Number</label>
+              <input class="form-control" required id="ccNumber" name="ccNumber" type="text" placeholder="Card Number"
+                [(ngModel)]="paymentDetails.ccNumber">
+          </div>
+           <div class="col-md-3">
+          
+              <label class="control-label" for="ccNumber">Card Expirey Month</label>
+              <select [(ngModel)]="paymentDetails.ccExpiryMonth" required #ccExpiryMonth="ngModel" class="form-control" name="ccExpiryMonth" >
+                 <option *ngFor="let m of expiryMonth; let itemIndex = index"  [selected]="itemIndex == 0">{{m.month}}</option>
+             </select>
+          </div>
+          <div class="col-md-3">
+              <label class="control-label" for="ccNumber">Card Expirey Year</label>
+               <select [(ngModel)]="paymentDetails.ccExpiryYear" required #ccExpiryYear="ngModel" class="form-control" name="ccExpiryYear" >
+                 <option *ngFor="let p of expiryYear; let itemIndex = index"  [selected]="itemIndex == 0">{{p.year}}</option>
+             </select>
+          </div>
+        </div>
+  </div>
+<!--Bank Debit-->
+  <div class="row"  *ngSwitchCase="'Debit My Bank Account'">
+     <div class="col-md-12">
+          <div class="col-md-5">
+              <label class="control-label">Bank Account</label>
+              <input class="form-control" required  #bankAccountNumber="ngModel" id="bankAccountNumber" name="ccNumber" type="text" placeholder="Bank Account"
+                [(ngModel)]="paymentDetails.bankAccountNumber">
+          </div>
+           <div class="col-md-5">
+              <label class="control-label" >Bank Routing</label>
+             <input class="form-control" required  #bankRouting="ngModel" id="bankRouting" name="ccNumber" type="text" placeholder="Bank Routing"
+                [(ngModel)]="paymentDetails.bankRouting">
+          </div>
+          <div class="col-md-2">
+              <label class="control-label">Bank Account type</label>
+               <select [(ngModel)]="paymentDetails.bankAccountType" required #bankAccountType="ngModel" class="form-control" name="bankAccountType" >
+                 <option *ngFor="let p of bankAccountTypes; let itemIndex = index"  [selected]="itemIndex == 0">{{p.accountTypeName}}</option>
+             </select>
+          </div>
+        </div>
+  </div>
+  </div> 
+</form>

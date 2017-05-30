@@ -19,6 +19,7 @@ export class FormData {
     students: Student[] = [];
     feesDue: FeesDue = new FeesDue();
     paymentDetails:PaymentDetails = new PaymentDetails();
+    paymentPlans: PaymentPlans[] = [];
 
     clear() {
         this.firstName = '';
@@ -79,6 +80,7 @@ export class Fees {
     feeDueImmediately: boolean;
 }
 
+
 export class PaymentDetails{
     paymentMethod:string;
     firstName:string;
@@ -90,3 +92,27 @@ export class PaymentDetails{
     bankRouting:number;
     bankAccountType:string;
 }
+
+export class PaymentPlans {
+    paymentPlanId: number;
+    formCode: string;
+    planType: string;
+    planName: string;
+    months: string;
+    paymentSpanString: string;
+    internalPaymentCount: number;
+    paymentCount: number;
+    allowAutoPayments: boolean;
+    allowMailInPayments: boolean;
+    allowACH: boolean;
+    allowCCs: boolean;
+    autoPaymentDays: AutoPaymentDays[] = [];
+    mailInPaymentDays: AutoPaymentDays[] = [];
+}
+
+class AutoPaymentDays {
+    day: number;
+    dayString: string;
+    paymentDayType: number;
+}
+

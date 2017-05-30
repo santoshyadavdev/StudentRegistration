@@ -20,8 +20,13 @@ import { StudentComponent } from './student/student.component';
 import { TuitionpaymentComponent } from './tuitionpayment/tuitionpayment.component';
 import { LogincomponentComponent } from './logincomponent/logincomponent.component';
 import { PaymentmodesComponent } from './paymentmodes/paymentmodes.component';
+
 import { PaymentdetailsComponent } from './paymentdetails/paymentdetails.component';
 import { PaymentProvider } from './data/paymentData.model'
+
+import { PaymentplanComponent } from './paymentplan/paymentplan.component';
+import { HighlightPaymentDirective } from './highlight-payment.directive';
+
 
 @NgModule({
   declarations: [
@@ -36,7 +41,12 @@ import { PaymentProvider } from './data/paymentData.model'
     TuitionpaymentComponent,
     LogincomponentComponent,
     PaymentmodesComponent,
+<<<<<<< HEAD
     PaymentdetailsComponent,
+=======
+    PaymentplanComponent,
+    HighlightPaymentDirective
+>>>>>>> d34ebb50cf54e18e04c8f2fcb3571529f19bfeea
   ],
   imports: [
     NgbModule.forRoot(),

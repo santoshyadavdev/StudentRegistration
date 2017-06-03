@@ -41,12 +41,9 @@ import { HighlightPaymentDirective } from './highlight-payment.directive';
     TuitionpaymentComponent,
     LogincomponentComponent,
     PaymentmodesComponent,
-<<<<<<< HEAD
     PaymentdetailsComponent,
-=======
-    PaymentplanComponent,
-    HighlightPaymentDirective
->>>>>>> d34ebb50cf54e18e04c8f2fcb3571529f19bfeea
+    HighlightPaymentDirective,
+    PaymentplanComponent
   ],
   imports: [
     NgbModule.forRoot(),

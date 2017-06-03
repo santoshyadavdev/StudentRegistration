@@ -6,8 +6,8 @@
         </select>
     </div>
   </div>
+
   <div class="row">
-     <div class="col-md-12">
           <div class="col-md-6">
               <label class="control-label" for="firstname">First Name</label>
               <input class="form-control" required id="firstname" name="firstname" type="text" placeholder="First Name"
@@ -17,20 +17,18 @@
               <label class="control-label" for="lastName">Last Name</label>
               <input class="form-control" required id="lastName" name="lastName" type="text" placeholder="Last Name"
                 [(ngModel)]="paymentDetails.lastName">
-          </div>
         </div>
   </div>
 <!--credit card-->
 <div ngSwitch= {{paymentDetails.paymentMethod}} > 
-  <div class="row"  *ngSwitchCase="'Charge My Credit Card'">
-     <div class="col-md-12">
+  <div *ngSwitchCase="'Charge My Credit Card'">
+     <div class="row">
           <div class="col-md-6">
               <label class="control-label" for="ccNumber">Card Number</label>
               <input class="form-control" required id="ccNumber" name="ccNumber" type="text" placeholder="Card Number"
                 [(ngModel)]="paymentDetails.ccNumber">
           </div>
            <div class="col-md-3">
-          
               <label class="control-label" for="ccNumber">Card Expirey Month</label>
               <select [(ngModel)]="paymentDetails.ccExpiryMonth" required #ccExpiryMonth="ngModel" class="form-control" name="ccExpiryMonth" >
                  <option *ngFor="let m of expiryMonth; let itemIndex = index"  [selected]="itemIndex == 0">{{m.month}}</option>
@@ -45,8 +43,8 @@
         </div>
   </div>
 <!--Bank Debit-->
-  <div class="row"  *ngSwitchCase="'Debit My Bank Account'">
-     <div class="col-md-12">
+  <div *ngSwitchCase="'Debit My Bank Account'">
+     <div class="row">
           <div class="col-md-5">
               <label class="control-label">Bank Account</label>
               <input class="form-control" required  #bankAccountNumber="ngModel" id="bankAccountNumber" name="ccNumber" type="text" placeholder="Bank Account"

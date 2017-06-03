@@ -1,13 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http'
 import { Observable } from "rxjs";
-
-<<<<<<< HEAD
-import { FormData, Personal, Address, Student, FeesDue, Fees,PaymentDetails } from './formData.model';
-=======
-import { FormData, Personal, Address, Student, FeesDue, Fees, PaymentPlans } from './formData.model';
->>>>>>> d34ebb50cf54e18e04c8f2fcb3571529f19bfeea
-
+import { FormData, Personal, Address, Student, FeesDue, Fees, PaymentPlans,PaymentDetails } from './formData.model';
+ 
 @Injectable()
 export class FormDataService {
 

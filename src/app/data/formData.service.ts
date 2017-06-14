@@ -1,8 +1,11 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http'
-import { Observable } from "rxjs";
-import { FormData, Personal, Address, Student, FeesDue, Fees, PaymentPlans,PaymentDetails } from './formData.model';
- 
+import { Http, Response, RequestOptions, Headers } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+import { FormData, Personal, Address, Student, FeesDue, Fees, PaymentPlans, PaymentDetails } from './formData.model';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
+import { Post } from './post';
+
 @Injectable()
 export class FormDataService {
 
@@ -12,6 +15,35 @@ export class FormDataService {
     private isAddressFormValid: boolean = false;
     private studentDataValid: boolean = false;
 
+
+    constructor(private _http: Http) {
+
+    }
+
+
+    private extractData(res: Response) {
+        let body = res.json();
+        console.log(body);
+        return body || {};
+    }
+
+    private handleError(error: Response | any) {
+        // In a real world app, we might use a remote logging infrastructure
+        let errMsg: string;
+        if (error instanceof Response) {
+            const body = error.json() || '';
+            const err = body.error || JSON.stringify(body);
+            errMsg = `${error.status} - ${error.statusText || ''} ${err}`;
+        } else {
+            errMsg = error.message ? error.message : error.toString();
+        }
+        console.error(errMsg);
+        return Promise.reject(errMsg);
+    }
+
+    getPostData(): Observable<Post[]> {
+        return this._http.get('https://jsonplaceholder.typicode.com/posts').map(this.extractData).catch(this.handleError);
+    }
     getPersonal(): Personal {
         // Return the Personal data
         let personal: Personal = {
@@ -34,7 +66,19 @@ export class FormDataService {
         return personal;
     }
 
+    getPersonalData(): Observable<any> {
+
+        let headers = new Headers({ 'Content-Type': 'application/json', 'Accept': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+        return this._http.get('http://localhost:52359/api/Enrollments', options).map(this.extractData).catch(this.handleError);
+    }
+
     setPersonal(data: Personal) {
+        let header = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: header });
+
+        let result = this._http.post('/person.json', { data }, options).map(this.extractData).catch(this.handleError);
+        console.log(result);
         // Update the Personal data only when the Personal Form had been validated successfully
         this.isPersonalFormValid = true;
         this.formData.firstName = data.firstName;
@@ -150,7 +194,7 @@ export class FormDataService {
             this.isAddressFormValid;
     }
 
-    getPaymentDetails():PaymentDetails{
+    getPaymentDetails(): PaymentDetails {
         return this.formData.paymentDetails;
     }
 

@@ -30,7 +30,7 @@ export class PersonalComponent implements OnInit {
     this.languages = this._stateProvider.getLangauge();
     this.securityQuestions = this._stateProvider.getSecurityQuestion();
     this.readData();
-    this.formDataService.getPostData().subscribe(data => this.post = data);
+    //this.formDataService.getPostData().subscribe(data => this.post = data);
   }
 
   readData() {
@@ -42,6 +42,7 @@ export class PersonalComponent implements OnInit {
     if (!form.valid) {
       return;
     }
+    this.formDataService.setPersonal(this.personal);
   }
 
 }

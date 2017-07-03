@@ -41,9 +41,9 @@ export class FormDataService {
         return Promise.reject(errMsg);
     }
 
-    getPostData(): Observable<Post[]> {
-        return this._http.get('https://jsonplaceholder.typicode.com/posts').map(this.extractData).catch(this.handleError);
-    }
+    // getPostData(): Observable<Post[]> {
+    //     return this._http.get('https://jsonplaceholder.typicode.com/posts').map(this.extractData).catch(this.handleError);
+    // }
     getPersonal(): Personal {
         // Return the Personal data
         let personal: Personal = {
@@ -70,15 +70,18 @@ export class FormDataService {
 
         let headers = new Headers({ 'Content-Type': 'application/json', 'Accept': 'application/json' });
         let options = new RequestOptions({ headers: headers });
-        return this._http.get('http://localhost:52359/api/Enrollments', options).map(this.extractData).catch(this.handleError);
+        return this._http.get('http://localhost:3000/api/user', options).map(this.extractData).catch(this.handleError);
     }
 
     setPersonal(data: Personal) {
-        let header = new Headers({ 'Content-Type': 'application/json' });
-        let options = new RequestOptions({ headers: header });
+        let headers = new Headers({ 'Content-Type': 'application/json', 'Accept': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
 
-        let result = this._http.post('/person.json', { data }, options).map(this.extractData).catch(this.handleError);
+        let result = this._http.post('http://localhost:3000/api/user', data, options).map(this.extractData).catch(this.handleError);
         console.log(result);
+        result.subscribe(res => console.log(res),
+            error => console.log(error));
+        // console.log(this.personalData);
         // Update the Personal data only when the Personal Form had been validated successfully
         this.isPersonalFormValid = true;
         this.formData.firstName = data.firstName;

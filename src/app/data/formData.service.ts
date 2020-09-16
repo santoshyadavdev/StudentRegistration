@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response, RequestOptions, Headers } from '@angular/http';
+import { HttpClient, HttpResponse, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { FormData, Personal, Address, Student, FeesDue, Fees, PaymentPlans, PaymentDetails } from './formData.model';
 import 'rxjs/add/operator/map';
@@ -16,23 +16,22 @@ export class FormDataService {
     private studentDataValid: boolean = false;
 
 
-    constructor(private _http: Http) {
+    constructor(private _http: HttpClient) {
 
     }
 
 
-    private extractData(res: Response) {
+    private extractData(res: any) {
         let body = res.json();
         console.log(body);
         return body || {};
     }
 
-    private handleError(error: Response | any) {
+    private handleError(error: any) {
         // In a real world app, we might use a remote logging infrastructure
         let errMsg: string;
-        if (error instanceof Response) {
-            const body = error.json() || '';
-            const err = body.error || JSON.stringify(body);
+        if (error instanceof HttpErrorResponse) {
+            const err = error || JSON.stringify(error);
             errMsg = `${error.status} - ${error.statusText || ''} ${err}`;
         } else {
             errMsg = error.message ? error.message : error.toString();
@@ -68,16 +67,11 @@ export class FormDataService {
 
     getPersonalData(): Observable<any> {
 
-        let headers = new Headers({ 'Content-Type': 'application/json', 'Accept': 'application/json' });
-        let options = new RequestOptions({ headers: headers });
-        return this._http.get('http://localhost:3000/api/user', options).map(this.extractData).catch(this.handleError);
+        return this._http.get('http://localhost:3000/api/user').map(this.extractData).catch(this.handleError);
     }
 
     setPersonal(data: Personal) {
-        let headers = new Headers({ 'Content-Type': 'application/json', 'Accept': 'application/json' });
-        let options = new RequestOptions({ headers: headers });
-
-        let result = this._http.post('http://localhost:3000/api/user', data, options).map(this.extractData).catch(this.handleError);
+        let result = this._http.post('http://localhost:3000/api/user', data).map(this.extractData).catch(this.handleError);
         console.log(result);
         result.subscribe(res => console.log(res),
             error => console.log(error));

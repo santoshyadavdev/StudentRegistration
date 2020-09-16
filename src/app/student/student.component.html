@@ -7,7 +7,7 @@
       <form [formGroup]="myForm" novalidate>
 
         <div formArrayName="students">
-          <div *ngFor="let student of myForm.controls.students.controls; let i=index" class="panel panel-default">
+          <div *ngFor="let student of students.controls; let i=index" class="panel panel-default">
             <div class="panel-heading">
               <span>student {{i + 1}}</span>
               <span class="glyphicon glyphicon-remove pull-right" *ngIf="myForm.controls.students.controls.length > 1" (click)="removeStudent(i)"></span>
@@ -46,7 +46,7 @@
           <button uiSref="personal" class="btn btn-primary pull-left"> <span style="margin-right:10px;" class="glyphicon glyphicon-arrow-left"> Previous</span></button>
           <button uiSref="payment" type="submit" (click)="save(myForm.controls.students.value)" class="btn btn-primary pull-right" [disabled]="!myForm.valid"> Next <span style="margin-left:10px;" class="glyphicon glyphicon-arrow-right"></span></button>
         </div>
-        <div class="clearfix"></div>     
+        <div class="clearfix"></div>
       </form>
     </div>
   </div>

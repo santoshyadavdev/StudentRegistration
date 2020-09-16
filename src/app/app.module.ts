@@ -1,8 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
-import { UIRouterModule } from '@uirouter/angular';
+import { HttpClientModule } from '@angular/common/http';
 import 'jquery/dist/jquery';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 import { AppComponent } from './app.component';
@@ -11,8 +10,6 @@ import { PersonalComponent } from './personal/personal.component';
 import { WorkComponent } from './work/work.component';
 import { AddressComponent } from './address/address.component';
 import { ResultComponent } from './result/result.component';
-import { UIRouterConfigFn } from './app.router';
-import { appStates } from './app.states';
 import { NavbarComponent } from './navbar/navbar.component';
 import { StateProvider, GradeProvider } from './data/stateDataModel';
 import { FormDataService } from './data/formData.service';
@@ -26,7 +23,18 @@ import { PaymentProvider } from './data/paymentData.model'
 
 import { PaymentplanComponent } from './paymentplan/paymentplan.component';
 import { HighlightPaymentDirective } from './highlight-payment.directive';
+import { Routes, RouterModule } from '@angular/router';
 
+const routes: Routes = [
+  // 1st State
+  { path: 'personal', component: PersonalComponent },
+  { path: 'student', component: StudentComponent },
+  // 3rd State
+  { path: 'payment', component: TuitionpaymentComponent },
+  { path: 'paymentplan', component: PaymentplanComponent },
+  // 4th State
+  { path: 'result', component: ResultComponent }
+];
 
 @NgModule({
   declarations: [
@@ -46,18 +54,14 @@ import { HighlightPaymentDirective } from './highlight-payment.directive';
     PaymentplanComponent
   ],
   imports: [
-    NgbModule.forRoot(),
+    NgbModule,
     BrowserModule,
     FormsModule,
-    HttpModule,
+    HttpClientModule,
     ReactiveFormsModule,
-    UIRouterModule.forRoot({
-      states: appStates,
-      useHash: true,
-      config: UIRouterConfigFn
-    })
+    RouterModule.forRoot(routes)
   ],
-  providers: [{ provide: FormDataService, useClass: FormDataService }, StateProvider, GradeProvider,PaymentProvider],
+  providers: [{ provide: FormDataService, useClass: FormDataService }, StateProvider, GradeProvider, PaymentProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

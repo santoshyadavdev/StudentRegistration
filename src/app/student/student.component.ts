@@ -19,6 +19,9 @@ export class StudentComponent implements OnInit {
         }
     ];
     gradeList: grade[];
+    get students() {
+      return this.myForm.get('students') as FormArray;
+    }
     constructor(private _fb: FormBuilder, private _formService: FormDataService, private _gradeProvider: GradeProvider) { }
 
     ngOnInit() {

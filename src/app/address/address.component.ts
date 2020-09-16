@@ -11,6 +11,10 @@ import { FormDataService } from '../data/formData.service'
 export class AddressComponent implements OnInit {
     public myForm: FormGroup;
 
+    get students() {
+      return this.myForm.get('students') as FormArray;
+    }
+
     constructor(private _fb: FormBuilder, private _formService: FormDataService) { }
 
     ngOnInit() {
@@ -25,10 +29,10 @@ export class AddressComponent implements OnInit {
         let students = this._formService.getStudents();
         console.log(students);
         if (students.length > 0) {
-                return this._fb.group(students[0],students[1]); 
+                return this._fb.group(students[0],students[1]);
         //          const control = <FormArray>this.myForm.controls['students'];
         // control.push(this.initAddress());
-                
+
         }
         else {
             return this._fb.group({

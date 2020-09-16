@@ -1,4 +1,6 @@
+import { Injectable } from "@angular/core";
 
+@Injectable()
 export class StateProvider {
     stateList: states[];
     languageData: string[];
@@ -82,6 +84,7 @@ export class StateProvider {
 
 
 
+@Injectable()
 export class GradeProvider {
     gradeList: grade[];
 

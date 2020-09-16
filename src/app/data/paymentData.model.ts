@@ -1,3 +1,4 @@
+import { Injectable } from "@angular/core";
 export interface PaymentMethod{
     id:number;
     paymentMethodCode:string;
@@ -17,6 +18,7 @@ export interface BankAccountType{
     accountTypeName:string;
 }
 
+@Injectable()
 export class PaymentProvider{
     paymentMethodList:PaymentMethod[];
     ccMonthList:CcExpiryMonth[];
